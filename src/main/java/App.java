@@ -30,7 +30,11 @@ public class App {
                 isCorrect = true;
             }
         }
-
+        if (mystery.toString().replace(" ","").equals(challenge)){
+            System.out.println(mystery);
+            System.out.println("You won!");
+            continueGame = false;
+        }
         if(!isCorrect) {
             incorrectGuesses++;
         }
