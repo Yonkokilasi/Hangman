@@ -7,10 +7,24 @@ public class App {
       int MAX_GUESSES = 7; //   These are the maximum guesses a user has
       int incorrectGuesses = 0; // These are the number of incorrectGuesses
       boolean continueGame = true; // This boolean determines if the game will continue or stop
-
-      System.out.println("Enter a word to begin");
-    String challenge = myConsole.readLine();
-    challenge = challenge.toLowerCase();
+      String challenge = "";
+      System.out.println("Pick a level to begin : Easy,Easier, Hard ,Harder, Medium ,Lexy");
+      String level = myConsole.readLine();
+      level = level.toLowerCase();
+      if (level.equals("easy")){
+           challenge = "handling";
+      } else if (level.equals("easier")){
+         challenge = "money";
+     } else if (level.equals("hard")){
+           challenge = "mammoth";
+      } else if (level.equals("medium")){
+            challenge = "eskimo";
+       }
+      else {
+            challenge = "zinjanthropus";
+       }
+    //
+    // challenge = challenge.toLowerCase();
     // The loop below gets the length of the input and replaces each character with a dash so that the next user will just see dashes .
     for ( int i= 0 ; i < challenge.length()*2 ; i ++ ) {
         if (i % 2 == 0 ) {
@@ -23,7 +37,6 @@ public class App {
 
     // The while loop below is in relation the the boolean above and will keep the game running until the number of incorrect guesses is reached or the user guesses the word.
     while (continueGame) {
-    // String replaced = challenge.replace("H_ _ _o");
         System.out.println(mystery);
         System.out.println("Now guess the words in the blank spaces");
         char attempt = myConsole.readLine().charAt(0);
@@ -47,7 +60,7 @@ public class App {
         }
 
         if (incorrectGuesses >= MAX_GUESSES) {
-            System.out.println("Sorry! You're out of guesses.");
+            System.out.println("Sorry! You're out of guesses. The word was " + mystery);
             continueGame = false;
         }
     }
